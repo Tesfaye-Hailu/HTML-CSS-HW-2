@@ -1,8 +1,15 @@
+
 body{
     margin: 50px;
     margin-bottom: 20px;
-        }
-         
+    margin-top: 0;
+    
+    }
+     
+    li {
+        text-decoration: underline;
+        color: blue;
+      }   
 
 .flex-container {
     display: flex;
@@ -32,7 +39,9 @@ body{
     box-sizing: border-box;
     background-color: fuchsia;
     margin-bottom: 0;
-  height: calc(100% - 40px);
+    height: calc(100% - 40px);
+    position: relative;
+    z-index: 1;
 }
 
 .topics {
@@ -67,6 +76,63 @@ footer {
     color:black;
   }
 
+  
+  .header {
+    background-color: gray;
+    margin-bottom: 0;
+    
+  }
+  
+  .header h2 {    /* for the header*/
+    margin: 0;
+    padding: 20px;
+    color: white;
+    
+  }
+  
+  .gray-area {  
+    background-color:gray; 
+    height: 100%;
+    margin-bottom: 0;
+  }
+  
  
   
+
+  body::before {
+    content: "";
+    position: fixed;
+    top: 0;
+    bottom: 0;
+    left: 0;
+    width: 50px;
+    background-color: gray;
+    z-index: -1;
+  }
+
+  body::after {
+    content: "";
+    position: fixed;
+    top: 0;
+    right: 0;
+    bottom: 0;
+    width: 50px;
+    background-color: gray;
+    z-index: -1;
+  }
+
+  footer {
+    /* your existing footer styles here */
+    position: relative; /* make the footer a reference point for the gray area */
+  }
   
+  footer::before {
+    content: '';
+    position: absolute;
+    left: 0;
+    right: 0;
+    top: calc(100% - 1px); /* Set the top position to just below the footer */
+    height: 1000vh; /* Set the height to a large enough value to cover the entire content */
+    background-color: gray;
+     }
+
